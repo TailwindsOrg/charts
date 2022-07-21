@@ -1,0 +1,15 @@
+{{- if .Values.rbac.create -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+   name: {{ include "tailwinds-security-image-scanner.fullname" . }}
+subjects:
+- kind: ServiceAccount
+  name: {{ include "tailwinds-security-image-scanner.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
+  apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: {{ include "tailwinds-security-image-scanner.fullname" .}}
+  apiGroup: ""
+{{- end }}

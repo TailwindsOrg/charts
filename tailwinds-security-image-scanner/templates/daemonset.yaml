@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "tailwinds-security-image-scanner.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "tailwinds-security-image-scanner.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "tailwinds-security-image-scanner.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "tailwinds-security-image-scanner.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "tailwinds-security-image-scanner.serviceAccountName" . }}
+      restartPolicy: Always
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: MY_NODE_NAME
+              valueFrom:
+                 fieldRef:
+                   fieldPath: spec.nodeName
+
+          volumeMounts:
+           - name: dockersock
+             mountPath: "/var/run/docker.sock"
+
+      volumes:
+      - name: dockersock
+        hostPath:
+          path: /var/run/docker.sock
+
+
+

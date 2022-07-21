@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "tailwinds-security-image-scanner.fullname" . }}-test-connection"
+  labels:
+    {{- include "tailwinds-security-image-scanner.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "tailwinds-security-image-scanner.fullname" . }}']
+  restartPolicy: Never

@@ -1,0 +1,11 @@
+{{- if.Values.rbac.create -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+   name: {{ include "tailwinds-dns-diagnostic-server.fullname" . }}
+rules:
+- apiGroups: [""]
+  resources: ["namespaces", "pods", "endpoints", "configmaps", "secrets"]
+  verbs: ["get", "watch", "list"]
+{{- end }}
+

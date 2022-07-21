@@ -1,0 +1,16 @@
+{{- if .Values.rbac.create -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+   name: {{ include "tailwinds-dns-diagnostic-server.fullname" . }}
+subjects:
+- kind: ServiceAccount
+  name: {{ include "tailwinds-dns-diagnostic-server.serviceAccountName" . }}
+  namespace: {{ .Release.Namespace }}
+  apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: {{ include "tailwinds-dns-diagnostic-server.fullname" . }}
+  apiGroup: ""
+{{- end }}
+

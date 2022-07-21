@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "tailwinds-config-change-detector.fullname" . }}-test-connection"
+  labels:
+    {{- include "tailwinds-config-change-detector.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "tailwinds-config-change-detector.fullname" . }}']
+  restartPolicy: Never
+

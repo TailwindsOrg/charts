@@ -1,0 +1,13 @@
+{{- if .Values.dashboards }}
+{{ $files := .Files }}
+{{- range $provider, $dashboards := .Values.dashboards }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+   name: custom-dashboards
+   labels:
+     grafana_dashboard: '1'
+data:
+  custom-dashboard.json: |
+  {{ .Files.Get "dashboards/custom-dashboard.json" | indent 4 }}
+
