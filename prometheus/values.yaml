@@ -125,6 +125,10 @@ alertmanager:
       - /alertmanager
     #   - domain.com/alertmanager
 
+    path: /
+
+    pathType: Prefix
+
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
     extraPaths: []
     # - path: /*
@@ -712,6 +716,10 @@ server:
     #hosts: []
     #   - prometheus.domain.com
     #   - domain.com/prometheus
+
+    path: /
+
+    pathType: Prefix
 
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
     extraPaths: []
@@ -1583,3 +1591,4 @@ networkPolicy:
 
 # Force namespace of namespaced resources
 forceNamespace: null
+

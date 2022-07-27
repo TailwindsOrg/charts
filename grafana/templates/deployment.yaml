@@ -19,8 +19,6 @@ spec:
     matchLabels:
       {{- include "grafana.selectorLabels" . | nindent 6 }}
 {{- with .Values.deploymentStrategy }}
-  securitContext:
-      runAsUser: 0
   strategy:
 {{ toYaml . | trim | indent 4 }}
 {{- end }}
@@ -47,3 +45,5 @@ spec:
     spec:
       {{- include "grafana.pod" . | nindent 6 }}
 {{- end }}
+
+

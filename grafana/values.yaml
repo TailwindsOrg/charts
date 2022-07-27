@@ -145,6 +145,7 @@ ingress:
     #nginx.ingress.kubernetes.io/use-regex: "true"
 
   path: "/grafana"
+  pathType: Prefix
   hosts: {}
    # - a53a9a5b9a4e0440c8b1b33f601e7b55-d0c0912b84b43ca1.elb.us-east-2.amazonaws.com
 
