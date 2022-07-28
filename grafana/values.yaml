@@ -392,6 +392,8 @@ dashboardProviders:
 ##
 dashboards:
    default:
+    dashboard-name:
+      json: pod-resources.json
     node-exporter:
       gnetId: 1860
       revision: 27
