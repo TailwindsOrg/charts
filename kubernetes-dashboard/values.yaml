@@ -191,7 +191,7 @@ ingress:
   ## Kubernetes Dashboard Ingress paths
   ## Both `/` and `/*` are required to work on gce ingress.
   paths:
-    - /
+    - /dashboard
   #  - /*
 
   ## Custom Kubernetes Dashboard Ingress paths. Will override default paths.
