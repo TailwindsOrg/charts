@@ -98,7 +98,7 @@ Return the appropriate apiVersion for deployment.
 {{- if semverCompare ">=1.9-0" .Capabilities.KubeVersion.GitVersion -}}
 {{- print "apps/v1" -}}
 {{- else -}}
-{{- print "extensions/v1beta1" -}}
+{{- print "extensions" -}}
 {{- end -}}
 {{- end -}}
 
@@ -118,8 +118,18 @@ Return the appropriate apiVersion for podSecurityPolicy.
 */}}
 {{- define "podSecurityPolicy.apiVersion" -}}
 {{- if semverCompare ">=1.10-0" .Capabilities.KubeVersion.GitVersion -}}
-{{- print "policy/v1beta1" -}}
+{{- print "policy" -}}
 {{- else -}}
-{{- print "extensions/v1beta1" -}}
+{{- print "extensions" -}}
 {{- end -}}
+{{- end -}}
+
+{{/*
+IngressClass parameters.
+*/}}
+{{- define "ingressClass.parameters" -}}
+  {{- if .Values.controller.ingressClassResource.parameters -}}
+          parameters:
+{{ toYaml .Values.controller.ingressClassResource.parameters | indent 4}}
+  {{ end }}
 {{- end -}}
