@@ -25,8 +25,8 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: [ "/bin/sh", "-c", "--" ]
-          args: ["while true; do echo \"***START SCAN REPORT***\"; eval kube-bench \"$@\"; echo \"***END SCAN REPORT***\"; sleep 3h; done;"]
+          # command: [ "/bin/sh", "-c", "--" ]
+          # args: ["while true; do echo \"***START SCAN REPORT***\"; eval kube-bench \"$@\"; echo \"***END SCAN REPORT***\"; sleep 3h; done;"]
           volumeMounts:
            - name: var-lib-etcd
              mountPath: /var/lib/etcd

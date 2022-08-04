@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: aquasec/kube-bench
+  repository: tailwindsai/tailwinds-kubernetes-scanner
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v0.6.7"
+  tag: beta-v0.2.1
 
 podAnnotations: {}
 
