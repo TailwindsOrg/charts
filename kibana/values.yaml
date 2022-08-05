@@ -64,9 +64,9 @@ healthCheckPath: "/app/kibana"
 # such as kibana.yml
 kibanaConfig: 
  kibana.yml: |
-    xpack:
-      security:
-        enabled: false
+    server:
+      securityResponseHeaders:
+        xContentTypeOptions: null
 
 
 # If Pod Security Policy in use it may be required to specify security context as well as service account
@@ -119,7 +119,7 @@ updateStrategy:
   type: "Recreate"
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   loadBalancerIP: ""
   port: 5601
   nodePort: ""
@@ -137,7 +137,7 @@ service:
   httpPortName: http
 
 ingress:
-  enabled: true
+  enabled: false
   className: "nginx"
   pathtype: Prefix
   annotations: 
