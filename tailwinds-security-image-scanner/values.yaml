@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: localhost:50001/tailwinds-image-scanner
+  repository: localhost:5001/tailwinds-image-scanner
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
