@@ -4,7 +4,32 @@ kind: ClusterRole
 metadata:
     name: {{ include "tailwinds-security-image-scanner.fullname" . }}
 rules:
-- apiGroups: [""]
-  resources: ["namespaces", "pods", "endpoints", "configmaps", "secrets"]
-  verbs: ["get", "watch", "list"]
+  - apiGroups: [""]
+    resources:
+    - configmaps
+    - deployments
+    - endpoints
+    - horizontalpodautoscalers
+    - namespaces
+    - nodes
+    - persistentvolumes
+    - persistentvolumeclaims
+    - pods
+    - secrets
+    - serviceaccounts
+    - services
+    - statefulsets
+    verbs: ["get", "watch", "list"]
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources:
+    - clusterroles
+    - clusterrolebindings
+    - roles
+    - rolebindings
+    verbs: ["get", "watch", "list"]
+  - apiGroups: ["metrics.k8s.io"]
+    resources:
+    - pods
+    - nodes
+    verbs: ["get", "watch", "list"]
 {{- end }}
