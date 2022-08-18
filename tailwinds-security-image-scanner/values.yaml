@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: tailwindsai/tailwinds-image-scanner
+  repository: localhost:50001/tailwinds-image-scanner
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "beta-v0.2.1"
+  tag: latest
 
 imagePullSecrets: []
 nameOverride: ""

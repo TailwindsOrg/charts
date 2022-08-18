@@ -34,8 +34,8 @@ hostAliases: []
 #  - "foo.local"
 #  - "bar.local"
 
-image: "docker.elastic.co/kibana/kibana"
-imageTag: "7.17.3"
+image: "kibana"
+imageTag: "8.3.3"
 imagePullPolicy: "IfNotPresent"
 
 # additionals labels
@@ -64,6 +64,12 @@ healthCheckPath: "/app/kibana"
 # such as kibana.yml
 kibanaConfig: 
  kibana.yml: |
+    csp:
+      script_src: 
+        - unsafe-eval 
+        - unsafe-inline 
+        - self
+      warnLegacyBrowsers: false
     server:
       securityResponseHeaders:
         xContentTypeOptions: null
