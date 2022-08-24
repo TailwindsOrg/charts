@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: tailwindsai/tailwinds-image-version-checker
-  tag: v0.1.0
+  tag: 0.1.0
   pullPolicy: Always
 
 versionChecker:
