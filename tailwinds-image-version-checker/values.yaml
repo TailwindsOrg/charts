@@ -6,8 +6,8 @@ replicaCount: 1
 
 image:
   repository: tailwindsai/tailwinds-image-version-checker
-  tag: 0.1.0
-  pullPolicy: Always
+  tag: 0.1.1
+  pullPolicy: IfNotPresent
 
 versionChecker:
   imageCacheTimeout: 30m
@@ -15,8 +15,8 @@ versionChecker:
   testAllContainers: false # don't require the enable.version-checker.io annotation
 
 acr:
-  username: tailwinds
-  password: pWnTzoLTxKr=8S6HK2Z4diuvv1AiZ=yI
+  username:
+  password:
   refreshToken:
 
 docker:
