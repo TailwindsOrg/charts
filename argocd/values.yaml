@@ -1094,7 +1094,7 @@ server:
 
     # -- List of ingress paths
     paths:
-      - /argocd
+            - path: /argocd
     # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
     pathType: Prefix
     # -- Additional ingress paths
