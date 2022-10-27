@@ -78,6 +78,7 @@ spec:
           {{- end }}
           args:
             - /nginx-ingress-controller
+            - --enable-ssl-passthrough
           {{- if .Values.defaultBackend.enabled }}
             - --default-backend-service={{ .Release.Namespace }}/{{ template "nginx-ingress.defaultBackend.fullname" . }}
           {{- else }}
