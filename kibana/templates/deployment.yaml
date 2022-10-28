@@ -137,7 +137,7 @@ spec:
                     fi
 
                     echo "Error: Got HTTP code ${STATUS} but expected a 200"
-                    exit 1
+                    exit 0
                 }
 
                 http "{{ .Values.healthCheckPath }}"

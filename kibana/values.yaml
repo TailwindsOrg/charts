@@ -10,7 +10,9 @@ extraEnvs:
   - name: "NODE_OPTIONS"
     value: "--max-old-space-size=1800"
   - name: "SERVER_BASEPATH"
-    value: "/app/kibana"
+    value: "/kibana"
+  - name: "SERVER_REWRITEBASEPATH"
+    value: "false"
 
 # Allows you to load environment variables from kubernetes secret or config map
 envFrom: []
@@ -48,17 +50,17 @@ podAnnotations: {}
 
 resources:
   requests:
-    cpu: "1000m"
-    memory: "2Gi"
+    cpu: "100m"
+    memory: "512M"
   limits:
-    cpu: "1000m"
-    memory: "2Gi"
+    cpu: "100m"
+    memory: "512M"
 
 protocol: http
 
 serverHost: "0.0.0.0"
 
-healthCheckPath: "/app/kibana"
+healthCheckPath: "/kibana/"
 
 # Allows you to add any config files in /usr/share/kibana/config/
 # such as kibana.yml
@@ -138,13 +140,14 @@ ingress:
   enabled: true
   className: "nginx"
   pathtype: Prefix
-  annotations: {}
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: "/$1"
   # kubernetes.io/ingress.class: nginx
   # kubernetes.io/tls-acme: "true"
   hosts:
     - host: 
       paths:
-        - path: /app/kibana
+        - path: "/kibana/(.*)"
   #tls: []
   #  - secretName: chart-example-tls
   #    hosts:
