@@ -109,7 +109,7 @@ controller:
   replicas: 1
 
   # -- Deploy the application controller as a StatefulSet instead of a Deployment, this is required for HA capability.
-  enableStatefulSet: true
+  enableStatefulSet: false
 
   ## Application controller commandline flags
   args:
@@ -1957,7 +1957,7 @@ configs:
     # -- Bcrypt hashed admin password
     ## Argo expects the password in the secret to be bcrypt hashed. You can create this hash with
     ## `htpasswd -nbBC 10 "" $ARGO_PWD | tr -d ':\n' | sed 's/$2y/$2a/'`
-    argocdServerAdminPassword: ""
+    argocdServerAdminPassword: "$2a$10$7YIyh65QCqvqxEXuH6CuZ.aXrzaVKL3AEaHuO32sEBhg0R71.TS2G"
     # -- Admin password modification time. Eg. `"2006-01-02T15:04:05Z"`
     # @default -- `""` (defaults to current time)
     argocdServerAdminPasswordMtime: ""
