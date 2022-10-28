@@ -141,13 +141,13 @@ ingress:
   className: "nginx"
   pathtype: Prefix
   annotations: 
-    nginx.ingress.kubernetes.io/rewrite-target: "$1"
+    nginx.ingress.kubernetes.io/rewrite-target: "/$1"
   # kubernetes.io/ingress.class: nginx
   # kubernetes.io/tls-acme: "true"
   hosts:
     - host: 
       paths:
-        - path: "/kibana(.*)"
+        - path: "/kibana/(.*)"
   #tls: []
   #  - secretName: chart-example-tls
   #    hosts:
