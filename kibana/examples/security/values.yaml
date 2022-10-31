@@ -29,9 +29,6 @@ kibanaConfig:
     elasticsearch.ssl:
       certificateAuthorities: /usr/share/kibana/config/certs/elastic-certificate.pem
       verificationMode: certificate
-    server.basepath: /kibana
-    server.rewriteBasePath: false
-
 
 protocol: https
 
