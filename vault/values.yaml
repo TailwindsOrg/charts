@@ -385,18 +385,17 @@ server:
     # When HA mode is enabled and K8s service registration is being used,
     # configure the ingress to point to the Vault active service.
     activeService: true
-    hosts: []
-    #   - host: chart-example.local
-    paths: 
-      - path: /
+    hosts:
+      - host: chart-example.local
+      paths:  []
     ## Extra paths to prepend to the host configuration. This is useful when working with annotation based services.
-    extraPaths: []
-    # - path: /*
-    #   backend:
-    #     service:
-    #       name: ssl-redirect
-    #       port:
-    #         number: use-annotation
+    extraPaths:
+     - path: /*
+       backend:
+         service:
+           name: ssl-redirect
+           port:
+             number: use-annotation
     tls: []
     #  - secretName: chart-example-tls
     #    hosts:
