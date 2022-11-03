@@ -6,7 +6,7 @@ metadata:
   {{- if .Values.annotations }}
   annotations:
     {{- range $key, $value := .Values.annotations }}
-  {{ $key }}: {{ $value | quote }}
+    {{ $key }}: {{ $value | quote }}
     {{- end }}
   {{- end }}
 spec:
@@ -103,12 +103,6 @@ spec:
           {{- end }}
           - name: SERVER_HOST
             value: "{{ .Values.serverHost }}"
-          - name: SERVER_BASEPATH
-            value: "/app/kibana"
-          - name: SERVER_REWRITEBASEPATH
-            value: "false"
-          - name: SERVER_PUBILCBASEURL
-            value: "https://chart-example.local/app/kibana"
 {{- if .Values.extraEnvs }}
 {{ toYaml .Values.extraEnvs | indent 10 }}
 {{- end }}
@@ -139,6 +133,9 @@ spec:
 
                     STATUS=$(curl --output /dev/null --write-out "%{http_code}" -k "$@" "{{ .Values.protocol }}://localhost:{{ .Values.httpPort }}${path}")
                     if [[ "${STATUS}" -eq 200 ]]; then
+                      exit 0
+                    fi
+                     if [[ "${STATUS}" -eq 302 ]]; then
                       exit 0
                     fi
 
