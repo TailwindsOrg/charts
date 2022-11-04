@@ -386,16 +386,22 @@ server:
     # configure the ingress to point to the Vault active service.
     activeService: true
     hosts:
-      - host: chart-example.local
-        paths: []
+      - host: 
+        paths:
     ## Extra paths to prepend to the host configuration. This is useful when working with annotation based services.
-    extraPaths: []
-    # - path: /*
-    #   backend:
-    #     service:
-    #       name: ssl-redirect
-    #       port:
-    #         number: use-annotation
+    extraPaths: 
+    - path: /v1
+      backend:
+        service:
+          name: ssl-redirect
+          port:
+            number: use-annotation
+    - path: /ui
+      backend:
+        service:
+          name: ssl-redirect
+          port:
+            number: use-annotation            
     tls: []
     #  - secretName: chart-example-tls
     #    hosts:
