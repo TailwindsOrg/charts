@@ -362,13 +362,12 @@ server:
   # If deployment is on OpenShift, the following block is ignored.
   # In order to expose the service, use the route section below
   ingress:
-    enabled: True
+    enabled: false
     labels: {}
       # traffic: external
     annotations:
-      kubernetes.io/ingress.class: nginx
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      # |
+      # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
       #   or
       # kubernetes.io/ingress.class: nginx
@@ -386,24 +385,16 @@ server:
     # configure the ingress to point to the Vault active service.
     activeService: true
     hosts:
-      - host: "a.b.c"
-    #    paths:
+    - host: chart-example.local
+        paths: []
     ## Extra paths to prepend to the host configuration. This is useful when working with annotation based services.
-    extraPaths: 
-    - path: /v1
-      pathType: Prefix
-      backend:
-        service:
-          name: ssl-redirect
-          port:
-            number: 8200
-    - path: /ui
-      pathType: Prefix
-      backend:
-        service:
-          name: ssl-redirect
-          port:
-            number: 8200            
+    extraPaths: []
+    # - path: /*
+    #   backend:
+    #     service:
+    #       name: ssl-redirect
+    #       port:
+    #         number: use-annotation
     tls: []
     #  - secretName: chart-example-tls
     #    hosts:
@@ -615,7 +606,7 @@ server:
 
     # Configures the service type for the main Vault service.  Can be ClusterIP
     # or NodePort.
-    type: ClusterIP
+    type: LoadBalancer
 
     # Do not wait for pods to be ready
     publishNotReadyAddresses: true
@@ -899,7 +890,7 @@ ui:
   publishNotReadyAddresses: true
   # The service should only contain selectors for active Vault pod
   activeVaultPodOnly: false
-  serviceType: "ClusterIP"
+  serviceType: "LoadBalancer"
   serviceNodePort: null
   externalPort: 8200
   targetPort: 8200
