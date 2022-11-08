@@ -396,16 +396,13 @@ dashboards:
       gnetId: 1860
       revision: 27
       datasource: Prometheus
-    pod-resources:
-      gnetId: 11671
-      revision: 3
-      datasource: Prometheus
-      #custom-dashboards:
-      #file: detailed-pod-resources.json
-  # pod-resources:
-  #    gnetId: 11594
-  #    revision: 5
-  #    datasource: Prometheus
+    Kubernetes-Networking-Pod:
+      gnetId: 12661
+      revision: 1
+      datasouce: Prometheus
+    custom-dashboards:
+      file: dashboards/detailed-pod-resources.json
+      #datasource: Prometheus
   # default:
   #   custom-dashboard:
   #     json: |
