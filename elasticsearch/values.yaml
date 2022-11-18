@@ -15,7 +15,7 @@ roles:
   remote_cluster_client: "true"
   ml: "true"
 
-replicas: 2
+replicas: 3
 minimumMasterNodes: 2
 
 esMajorVersion: ""
