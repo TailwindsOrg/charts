@@ -450,7 +450,7 @@ server:
     command: ["sh","-c"]
     args:
     - echo "In the unseal sidecar container" &&
-      while true; do sleep 30; if [ ! -z $UNSEAL_KEY ]; then echo "Key=$UNSEAL_KEY"; response=$(curl -s http://127.0.0.1:8200/v1/sys/init); echo "Vault status=$response"; if [ $response != "{\"initialized\":true}" ] then presponse=$(curl -s -X POST -d '{\"key\"; \"$UNSEAL_KEY\"}' http://127.0.0.1:8200/v1/sys/unseal); echo "Unseal response = $presponse"; fi; fi; done &&
+      while true; do sleep 30; if [ ! -z $UNSEAL_KEY ]; then echo "Key=$UNSEAL_KEY"; response=$(curl -s http://127.0.0.1:8200/v1/sys/init); echo "Vault status=$response"; if [ $response != "{\"initialized\":true}" ]; then presponse=$(curl -s -X POST -d '{\"key\"; \"$UNSEAL_KEY\"}' http://127.0.0.1:8200/v1/sys/unseal); echo "Unseal response = $presponse"; fi; fi; done &&
       echo "Out of sleep"
 
   # shareProcessNamespace enables process namespace sharing between Vault and the extraContainers
