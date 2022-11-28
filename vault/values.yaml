@@ -457,7 +457,7 @@ server:
           response=$(curl -s http://127.0.0.1:8200/v1/sys/seal-status|grep -c "\"sealed\":true"); \
           echo "Vault sealed status=$response"; \
           if [ $response != 0 ]; then \
-            presponse=$(curl -s -X POST -d '{\"key\": \"$UNSEAL_KEY\"}' http://127.0.0.1:8200/v1/sys/unseal); \
+            presponse=$(curl -s -X POST -d '{"key":"$UNSEAL_KEY"}' http://127.0.0.1:8200/v1/sys/unseal); \
             echo "Unseal response = $presponse"; \
           fi; \
         fi; \
