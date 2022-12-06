@@ -444,7 +444,14 @@ server:
     #       mountPath: /usr/local/libexec/vault
 
   # extraContainers is a list of sidecar containers. Specified as a YAML list.
-  extraContainers: null
+  extraContainers:
+  - name: unseal-container
+    image: alpine/curl
+    command: ["sh","-c"]
+    args:
+    - echo "In the unseal sidecar container" &&
+      while true; do sleep 30; if [ ! -z $UNSEAL_KEY ]; then response=$(curl -s http://127.0.0.1:8200/v1/sys/seal-status|grep -c "\"sealed\":true"); if [ $response != 0 ]; then echo "{\"key\":\"$UNSEAL_KEY\"}" > /tmp/unsealParam; presponse=$(curl -s -X POST -d@/tmp/unsealParam http://127.0.0.1:8200/v1/sys/unseal); echo "Unseal response = $presponse"; rm -f /tmp/unsealParam; fi; fi; done &&
+      echo "Out of sleep"
 
   # shareProcessNamespace enables process namespace sharing between Vault and the extraContainers
   # This is useful if Vault must be signaled, e.g. to send a SIGHUP for a log rotation
