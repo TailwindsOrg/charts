@@ -167,15 +167,20 @@ service:
 ingress:
   ## If true, Kubernetes Dashboard Ingress will be created.
   ##
-  enabled: false
+  enabled: true
 
   ## Kubernetes Dashboard Ingress labels
   # labels:
   #   key: value
 
   ## Kubernetes Dashboard Ingress annotations
-  # annotations:
-  #   kubernetes.io/ingress.class: nginx
+  annotations:
+    #kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+     rewrite ^(/dashboard)$ $1/ redirect;
+
+
   #   kubernetes.io/tls-acme: 'true'
 
   ## If you plan to use TLS backend with enableInsecureLogin set to false
@@ -183,31 +188,33 @@ ingress:
   ## If you use ingress-nginx < 0.21.0
   #   nginx.ingress.kubernetes.io/secure-backends: "true"
   ## if you use ingress-nginx >= 0.21.0
-  #   nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  #nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 
   ## Kubernetes Dashboard Ingress Class
-  # className: "example-lb"
+  className: "nginx"
 
   ## Kubernetes Dashboard Ingress paths
   ## Both `/` and `/*` are required to work on gce ingress.
   paths:
-    - /dashboard
+    - /dashboard(/|$)(.*)
   #  - /*
 
   ## Custom Kubernetes Dashboard Ingress paths. Will override default paths.
   ##
   customPaths: []
-  #  - pathType: ImplementationSpecific
+  #- pathType: Prefix
   #    backend:
   #      service:
-  #        name: ssl-redirect
+  #         name: kubernetes-dashboard
   #        port:
   #          name: use-annotation
-  #  - pathType: ImplementationSpecific
+  # - paths:
+  #   path: /dashboard(/|$)(.*)
+  #   pathType: Prefix
   #    backend:
-  #      service:
+  #    service:
   #        name: >-
-  #          {{ include "kubernetes-dashboard.fullname" . }}
+  #                    {{ include "kubernetes-dashboard.fullname" . }}
   #        port:
   #          # Don't use string here, use only integer value!
   #          number: 443

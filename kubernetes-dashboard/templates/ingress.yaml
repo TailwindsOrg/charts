@@ -20,6 +20,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ template "kubernetes-dashboard.fullname" . }}
+  namespace: kubernetes-dashboard
   labels:
     {{- include "kubernetes-dashboard.labels" . | nindent 4 }}
     {{- range $key, $value := .Values.ingress.labels }}
@@ -56,7 +57,7 @@ spec:
   {{- else }}
   {{- range $p := $paths }}
           - path: {{ $p }}
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: {{ $serviceName }}
@@ -73,7 +74,7 @@ spec:
   {{- else }}
   {{- range $p := $paths }}
           - path: {{ $p }}
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: {{ $serviceName }}
