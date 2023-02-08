@@ -6,7 +6,7 @@ entries:
         - "[Changed]: Update to app version 2.4.11"
     apiVersion: v2
     appVersion: v2.4.11
-    created: "2023-02-07T04:33:39.821164378Z"
+    created: "2023-02-08T07:21:36.59665232Z"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -14,7 +14,7 @@ entries:
       version: 4.17.1
     description: A Helm chart for Argo CD, a declarative, GitOps continuous delivery
       tool for Kubernetes.
-    digest: f1a2726292ad62e3050815764bf8f0201e5917d7ffd122a4c8a18cb9d7babfe8
+    digest: 99a50f5711642295fa76b82206a4c130ed9ec7a4be1231197799514340309ca1
     home: https://github.com/argoproj/argo-helm
     icon: https://argo-cd.readthedocs.io/en/stable/assets/logo.png
     keywords:
@@ -28,14 +28,14 @@ entries:
     - name: seanson
     name: argo-cd
     urls:
-    - https://TailwindsOrg.github.io/charts/argo-cd-4.10.9.tgz
+    - https://tailwindsorg.github.io/charts/argo-cd-4.10.9.tgz
     version: 4.10.9
   elasticsearch:
   - apiVersion: v1
     appVersion: 7.17.3
-    created: "2023-02-07T04:33:39.823129701Z"
+    created: "2023-02-08T07:21:36.598563459Z"
     description: Official Elastic helm chart for Elasticsearch
-    digest: dbdb6aae7c5f0215cc97ee7ad3cdf08b9bc4c5d83189956392aa7574b7f6980a
+    digest: 04b575c4a7a391ff491905cbe2560947a1a251862fafa239de132f6cbfd53af3
     home: https://github.com/elastic/helm-charts
     icon: https://helm.elastic.co/icons/elasticsearch.png
     maintainers:
@@ -45,7 +45,7 @@ entries:
     sources:
     - https://github.com/elastic/elasticsearch
     urls:
-    - https://TailwindsOrg.github.io/charts/elasticsearch-7.17.3.tgz
+    - https://tailwindsorg.github.io/charts/elasticsearch-7.17.3.tgz
     version: 7.17.3
   fluent-bit:
   - annotations:
@@ -54,10 +54,10 @@ entries:
           description: "Updated Fluent Bit image to v1.9.9."
     apiVersion: v1
     appVersion: 1.9.9
-    created: "2023-02-07T04:33:39.826911945Z"
+    created: "2023-02-08T07:21:36.599840785Z"
     description: Fast and lightweight log processor and forwarder or Linux, OSX and
       BSD family operating systems.
-    digest: 3b8afa8857119265d809ad3ec965380eeddb5a79f00889e0382074035992d4b9
+    digest: 7c035838d310aa9e01e73c9a1faf4dadbe41f7a1d18f6bf5b30e7840217bd27a
     home: https://fluentbit.io/
     icon: https://fluentbit.io/assets/img/logo1-default.png
     keywords:
@@ -77,14 +77,14 @@ entries:
     sources:
     - https://github.com/fluent/fluent-bit/
     urls:
-    - https://TailwindsOrg.github.io/charts/fluent-bit-0.20.9.tgz
+    - https://tailwindsorg.github.io/charts/fluent-bit-0.20.9.tgz
     version: 0.20.9
   grafana:
   - apiVersion: v2
     appVersion: 9.0.2
-    created: "2023-02-07T04:33:39.82907797Z"
+    created: "2023-02-08T07:21:36.601808125Z"
     description: The leading tool for querying and visualizing time series and metrics.
-    digest: 554cedd330d517285d047bfe55d0e9e5072da61c354c9fe213999ee170ae8e67
+    digest: 3c140844ab5f2b81bc070287c2afa808823d034d00a2a362384fe9f90179e94c
     home: https://grafana.net
     icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
     kubeVersion: ^1.8.0-0
@@ -93,14 +93,14 @@ entries:
     - https://github.com/grafana/grafana
     type: application
     urls:
-    - https://TailwindsOrg.github.io/charts/grafana-6.32.9.tgz
+    - https://tailwindsorg.github.io/charts/grafana-6.32.9.tgz
     version: 6.32.9
   kibana:
   - apiVersion: v1
     appVersion: 7.17.3
-    created: "2023-02-07T04:33:39.83000948Z"
+    created: "2023-02-08T07:21:36.602702543Z"
     description: Official Elastic helm chart for Kibana
-    digest: 5dae3f0798af5d3e95a6d5ad1ab20bf8150460ffa712a40d6d9c17436d7100fa
+    digest: ac0bdbd47caeaac1b0de52862241858a5b62987681cb5d8a8d6251fffbfdfef2
     home: https://github.com/elastic/helm-charts
     icon: https://helm.elastic.co/icons/kibana.png
     maintainers:
@@ -110,19 +110,19 @@ entries:
     sources:
     - https://github.com/elastic/kibana
     urls:
-    - https://TailwindsOrg.github.io/charts/kibana-7.17.3.tgz
+    - https://tailwindsorg.github.io/charts/kibana-7.17.3.tgz
     version: 7.17.3
   kubernetes-dashboard:
   - apiVersion: v2
     appVersion: 2.6.0
-    created: "2023-02-07T04:33:39.832785012Z"
+    created: "2023-02-08T07:21:36.604897588Z"
     dependencies:
     - condition: metrics-server.enabled
       name: metrics-server
       repository: https://kubernetes-sigs.github.io/metrics-server/
       version: 3.5.0
     description: General-purpose web UI for Kubernetes clusters
-    digest: bf7ae608b335d01bf96cb0d783cf47e9c220048dc37057cf8107dc04d4e09648
+    digest: d75734c539ddb40875b76a36c60db393aa370302b413e4766ea46780c0c39194
     home: https://github.com/kubernetes/dashboard
     icon: https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.svg
     keywords:
@@ -136,14 +136,14 @@ entries:
     sources:
     - https://github.com/kubernetes/dashboard
     urls:
-    - https://TailwindsOrg.github.io/charts/kubernetes-dashboard-5.7.0.tgz
+    - https://tailwindsorg.github.io/charts/kubernetes-dashboard-5.7.0.tgz
     version: 5.7.0
   logstash:
   - apiVersion: v1
-    appVersion: 8.0.0-SNAPSHOT
-    created: "2023-02-07T04:33:39.835060039Z"
+    appVersion: 8.0.0
+    created: "2023-02-08T07:21:36.60597421Z"
     description: Official Elastic helm chart for Logstash
-    digest: 8735e40d80e215bd628a09a931e357739b7f87efade30bfc2f6b6b9067d8e5fc
+    digest: fa4303dc5e841b8b7c8e0f7072dfb8be8261704ce60dd3598b0131b9f8e7f09b
     home: https://github.com/elastic/helm-charts
     icon: https://helm.elastic.co/icons/logstash.png
     maintainers:
@@ -153,15 +153,15 @@ entries:
     sources:
     - https://github.com/elastic/logstash
     urls:
-    - https://TailwindsOrg.github.io/charts/logstash-8.0.0-SNAPSHOT.tgz
-    version: 8.0.0-SNAPSHOT
+    - https://tailwindsorg.github.io/charts/logstash-8.0.0.tgz
+    version: 8.0.0
   nginx-ingress:
   - apiVersion: v1
     appVersion: 0.32.0
-    created: "2023-02-07T04:33:39.837873471Z"
+    created: "2023-02-08T07:21:36.609606984Z"
     description: An nginx Ingress controller that uses ConfigMap to store the nginx
       configuration.
-    digest: d7ba1091f2f16e9824171d650b5508a5cc5ac8bfde5e0a747545f4f780c79867
+    digest: 65a32babf74803ab2cfbc4979cdffde40a984f767338cbc6807c030a6a9f5a7f
     home: https://github.com/kubernetes/ingress-nginx
     icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
     keywords:
@@ -176,19 +176,19 @@ entries:
     sources:
     - https://github.com/kubernetes/ingress-nginx
     urls:
-    - https://TailwindsOrg.github.io/charts/nginx-ingress-1.40.3.tgz
+    - https://tailwindsorg.github.io/charts/nginx-ingress-1.40.3.tgz
     version: 1.40.3
   prometheus:
   - apiVersion: v2
     appVersion: 2.36.2
-    created: "2023-02-07T04:33:39.843978142Z"
+    created: "2023-02-08T07:21:36.614277979Z"
     dependencies:
     - condition: kubeStateMetrics.enabled
       name: kube-state-metrics
       repository: https://prometheus-community.github.io/helm-charts
       version: 4.13.*
     description: Prometheus is a monitoring system and time series database.
-    digest: 7a957caf212615774c72b84ff667d719a70574f214d6127c4b102dc089554d03
+    digest: e0d58368a9be586b62f0eb5eeb8724c7f97ce2ccb5913aab6611c1e1006bc66d
     home: https://prometheus.io/
     icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
     maintainers:
@@ -209,79 +209,79 @@ entries:
     - https://github.com/kubernetes/kube-state-metrics
     type: application
     urls:
-    - https://TailwindsOrg.github.io/charts/prometheus-15.10.5.tgz
+    - https://tailwindsorg.github.io/charts/prometheus-15.10.5.tgz
     version: 15.10.5
   tailwinds-config-change-detector:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-07T04:33:39.844339546Z"
+    created: "2023-02-08T07:21:36.614582486Z"
     description: A Helm chart for config-change-detector
-    digest: 54f503313e62ed1b5d434387f3696acdb66f9300e595f6f782325b6c4f84cfa0
+    digest: b4361a86be0e2a7232c4b5388aa01275b79937d95ebe285685fda20c63fed128
     name: tailwinds-config-change-detector
     type: application
     urls:
-    - https://TailwindsOrg.github.io/charts/tailwinds-config-change-detector-0.1.0.tgz
+    - https://tailwindsorg.github.io/charts/tailwinds-config-change-detector-0.1.0.tgz
     version: 0.1.0
   tailwinds-dns-diagnostic-server:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-07T04:33:39.84465875Z"
+    created: "2023-02-08T07:21:36.614862891Z"
     description: A Helm chart for dns-diagnostic-server
-    digest: dad2914978a4d068e419024bd4cc91b19e9d025fccd87d80e27b644159d6a1aa
+    digest: 16dfd92e5f55f9d31fe5718854d08cc7595787055ea69973bdef8d3b307e9c36
     name: tailwinds-dns-diagnostic-server
     type: application
     urls:
-    - https://TailwindsOrg.github.io/charts/tailwinds-dns-diagnostic-server-0.1.0.tgz
+    - https://tailwindsorg.github.io/charts/tailwinds-dns-diagnostic-server-0.1.0.tgz
     version: 0.1.0
   tailwinds-image-version-checker:
   - apiVersion: v1
     appVersion: 1.16.0
-    created: "2023-02-07T04:33:39.844973053Z"
+    created: "2023-02-08T07:21:36.615164397Z"
     description: A Helm chart for version-checker
-    digest: 9ce06f6b419ade55fead7778ae77b7cad883d36d4a5ec20250cd5b44e4b06e11
+    digest: 113e4454bc89ddff56c815ee979efc744b3bc6f7f057f3c933b88f62a8f66561
     name: tailwinds-image-version-checker
     urls:
-    - https://TailwindsOrg.github.io/charts/tailwinds-image-version-checker-0.1.0.tgz
+    - https://tailwindsorg.github.io/charts/tailwinds-image-version-checker-0.1.0.tgz
     version: 0.1.0
   tailwinds-security-image-scanner:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-07T04:33:39.845261857Z"
+    created: "2023-02-08T07:21:36.615436703Z"
     description: A Helm chart for image scanner
-    digest: 8020594245a427ca86bb1ae8629e5614292c6edc53b27f8a62a7b7051036bc24
+    digest: 60cae77f6f0fd83f335956d45151ef4ae3e99fa20813595d0fd327a9d28f8037
     name: tailwinds-security-image-scanner
     type: application
     urls:
-    - https://TailwindsOrg.github.io/charts/tailwinds-security-image-scanner-0.1.0.tgz
+    - https://tailwindsorg.github.io/charts/tailwinds-security-image-scanner-0.1.0.tgz
     version: 0.1.0
   tailwinds-security-kubernetes-scanner:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-07T04:33:39.845486059Z"
+    created: "2023-02-08T07:21:36.615656107Z"
     description: A Helm chart for kubernetes-scanner
-    digest: 584985d5178776f3cbb96ba36e1841ffbe41e6ae09f3b5dcdad79598270610d3
+    digest: 118f2f71d8bf19afe0910bc3508ae7aa8d2ada40d3a3b94a81c2db1b3ef19ae5
     name: tailwinds-security-kubernetes-scanner
     type: application
     urls:
-    - https://TailwindsOrg.github.io/charts/tailwinds-security-kubernetes-scanner-0.1.0.tgz
+    - https://tailwindsorg.github.io/charts/tailwinds-security-kubernetes-scanner-0.1.0.tgz
     version: 0.1.0
   tailwinds-visibility-scanner:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-07T04:33:39.845819763Z"
+    created: "2023-02-08T07:21:36.615963114Z"
     description: A Helm chart for visibility-scanner
-    digest: afc54925631dacfed624cab1c184763348a4c6ef14c2b944c5bb97f90094c3dc
+    digest: 49f2c18afb359597dc9a4821aa93400db3aea9763c86dec2bdbf4ce69b3e0984
     name: tailwinds-visibility-scanner
     type: application
     urls:
-    - https://TailwindsOrg.github.io/charts/tailwinds-visibility-scanner-0.1.0.tgz
+    - https://tailwindsorg.github.io/charts/tailwinds-visibility-scanner-0.1.0.tgz
     version: 0.1.0
   vault:
   - apiVersion: v2
     appVersion: 1.11.3
-    created: "2023-02-07T04:33:39.852107636Z"
+    created: "2023-02-08T07:21:36.619019576Z"
     description: Official HashiCorp Vault Chart
-    digest: c4c9ad0359c7b67bbd1acfa2a0b53c48b863e7dea59e143b8075bbb3280378bf
+    digest: 365b34e03061f1b2eb8a371788895b4a75ccb8f966c623d099929305563f9ad3
     home: https://www.vaultproject.io
     icon: https://github.com/hashicorp/vault/raw/f22d202cde2018f9455dec755118a9b84586e082/Vault_PrimaryLogo_Black.png
     keywords:
@@ -300,6 +300,6 @@ entries:
     - https://github.com/hashicorp/vault-k8s
     - https://github.com/hashicorp/vault-csi-provider
     urls:
-    - https://TailwindsOrg.github.io/charts/vault-0.22.0.tgz
+    - https://tailwindsorg.github.io/charts/vault-0.22.0.tgz
     version: 0.22.0
-generated: "2023-02-07T04:33:39.809599745Z"
+generated: "2023-02-08T07:21:36.585690796Z"

@@ -711,13 +711,11 @@ server:
     ## Prometheus server Ingress hostnames with optional path
     ## Must be provided if Ingress is enabled
     ##
-    hosts:
+    hosts: 
       - /prometheus
-    #hosts: []
-    #   - prometheus.domain.com
     #   - domain.com/prometheus
 
-    path: /
+    path: /prometheus
 
     pathType: Prefix
 
